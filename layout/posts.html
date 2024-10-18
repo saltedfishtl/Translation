@@ -1,0 +1,94 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ '/assets/posts.css' | relative_url }}">
+    <title>{{ page.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px; /* To prevent content from hiding behind the nav */
+            padding: 20px;
+        }
+
+        .chapter-navigation {
+            margin-top: 20px;
+        }
+
+        .chapter-navigation a {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .chapter-navigation a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>{{ page.title }}</h1>
+    <h2>Chapter {{ page.chapter }}</h2>
+    
+    <div class="chapter-content">
+        {{ content }}
+    </div>
+
+    <div class="chapter-navigation">
+        {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}">Previous Chapter</a>
+        {% endif %}
+        
+        {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}">Next Chapter</a>
+        {% endif %}
+        
+        <a href="{{ '/posts' | relative_url }}">All Chapters</a>
+    </div>
+</main>
+
+</body>
+</html>

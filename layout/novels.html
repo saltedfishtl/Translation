@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ '/assets/novels.css' | relative_url }}">
+    <title>{{ page.title }}</title>
+</head>
+<body>
+
+<main>
+    <h1>{{ page.title }}</h1>
+    
+    <!-- Novel Cover -->
+    <div class="novel-cover">
+        <img src="{{ page.cover_image }}" alt="{{ page.title }} Cover" width="300"> <!-- Adjust width as needed -->
+    </div>
+
+    <!-- Summary -->
+    <h2>Summary</h2>
+    <div class="summary">
+        <iframe src="{{ page.summary_embed }}" width="600" height="400" style="border:none;"></iframe>
+    </div>
+
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <ul>
+        {% for chapter in page.table_of_contents %}
+            <li><a href="{{ chapter.url }}">{{ chapter.title }}</a></li>
+        {% endfor %}
+    </ul>
+</main>
+
+</body>
+</html>

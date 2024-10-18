@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ '/assets/home.css' | relative_url }}"> <!-- General styles -->
+    <link rel="stylesheet" href="{{ '/assets/nav.css' | relative_url }}"> <!-- Navbar styles -->
+    <title>{{ page.title }}</title>
+</head>
+
+<body>
+
+    {% include navbar.html %}
+
+    <main>
+      {{ content }}
+    </main>
+
+</body>
+  
+<script src="{{ '/assets/scripts.js' | relative_url }}"></script>
+
+</html>
